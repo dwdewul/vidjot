@@ -21,7 +21,8 @@ require('./config/passport')(passport);
 mongoose.Promise = global.Promise;
 
 // Connect to mongoose
-mongoose.connect('mongodb://localhost/vidjot-dev', {
+const keys = require('./config/keys');
+mongoose.connect(keys.mongoURI, {
     useMongoClient: true
 })
 .then(() => { console.log('MongoDB connected') })
